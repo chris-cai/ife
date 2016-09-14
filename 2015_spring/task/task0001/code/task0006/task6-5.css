@@ -1,0 +1,14 @@
+
+.container{
+	width: 60%;
+	background-color: red;
+	overflow: hidden;
+}
+
+.container div{
+	background-color: blue;
+	width: 100px;
+	height: 50px;
+	float: left;
+	margin: 20px;
+}

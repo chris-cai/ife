@@ -1,0 +1,38 @@
+* {
+	margin: 10;
+	padding: 10;
+}
+
+.demo1 .left{
+	width: 200px;
+	height: 100px;
+	float: left;
+	background-color: blue;
+}
+.demo1 .right{
+	height: 100px;
+	background-color: green;
+	margin-left: 200px;
+}
+.bottom{
+	background-color: black;
+	height: 100px;
+}
+
+
+.demo2{
+	position: relative;
+}
+.demo2 .left{
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: yellow;
+}
+.demo2 .right{
+	height: 100px;
+	margin-left: 200px;
+	background-color: blue;
+}

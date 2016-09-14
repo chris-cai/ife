@@ -1,0 +1,26 @@
+.demo1{
+	border: 1px solid red;
+	position: relative;
+}
+
+.demo1 .left{
+	background-color: black;
+	height: 100px;
+	width: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.demo1 .right{
+	background-color: blue;
+	height: 100px;
+	width: 200px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.demo1 .middle{
+	background-color: green;
+	height: 100px;
+	margin: 0 200px;
+}
