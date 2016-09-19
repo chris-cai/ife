@@ -2,7 +2,6 @@
 	border: 1px solid red;
 	position: relative;
 }
-
 .demo1 .left{
 	background-color: black;
 	height: 100px;
@@ -24,3 +23,60 @@
 	height: 100px;
 	margin: 0 200px;
 }
+
+
+.demo2{
+	padding: 0 300px 0 200px;
+}
+.demo2 .main{
+	float: left;
+	width: 100%;
+	background-color: red;
+}
+.demo2 .left{
+	width: 200px;
+	background-color: blue;
+	float: left;
+	margin-left: -100%;
+	position: relative;
+	left: -200px;
+}
+.demo2 .right{
+	width: 300px;
+	background-color: green;
+	float: left;
+	margin-left: -300px;
+	position: relative;
+	right: -300px;
+}
+
+.demo3 .main{
+	width: 100%;
+	float: left;
+	background-color: red;
+}
+.demo3 .left{
+	width: 200px;
+	background-color: blue;
+	float: left;
+	margin-left: -100%;
+}
+.demo3 .right{
+	width: 300px;
+	background-color: green;
+	float: left;
+	margin-left: -300px;
+}
+.demo3 .main-wrap{
+	margin: 0 300px 0 200px;
+}
+
+
+
+
+
+
+
+
+
+

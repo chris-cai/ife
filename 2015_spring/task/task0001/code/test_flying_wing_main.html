@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.main {        
+           float: left;       
+           width: 100%; 
+           height:50px;
+           background-color: black;
+ 		} 
+ 		.sub {       
+           float: left;        
+           width: 190px;        
+           margin-left: -100%;
+           height:50px;
+           background-color: blue;
+    }   
+    .extra {        
+         float: left;        
+         width: 230px;        
+         margin-left: -230px;   
+         height:50px;
+         background-color: green;
+ 		}
+    .main-wrap{
+      margin: 0 230px 0 190px;
+    }
+	</style>
+</head>
+<body>
+<!-- 双飞翼布局 -->
+<!-- http://www.cnblogs.com/langzs/archive/2013/01/27/taobaoshuangfeiyi.html -->
+<!-- http://www.cnblogs.com/tinyphp/p/4743674.html -->
+	<div id="page">    
+        <div id="hd"></div>    
+     	<div id="bd">   
+          <div class="main">     
+            <div class="main-wrap"></div>
+          </div>        
+          <div class="sub"></div>        
+          <div class="extra"></div>    
+     	</div>   
+      	<div id="ft"></div>
+    </div>
+</body>
+</html>
