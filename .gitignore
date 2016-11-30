@@ -4,3 +4,5 @@ Thumbs.db
 .DS_Store
 *.swp
 /dist
+*.xml
+2015_spring/task/task0002/.idea/task0002.iml

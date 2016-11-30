@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<script type="text/javascript" src="./util.js"></script>
+</head>
+<body>
+	<div class="sui">div1</div>
+	<div>div2</div>
+
+
+
+	<script type="text/javascript">
+		window.onload = function(){
+			addClass(document.getElementsByTagName("div")[0],"sui-btn");
+
+			removeClass(document.getElementsByTagName("div")[0],"sui ");
+
+			var flag = isSiblingNode(document.getElementsByTagName("div")[0],document.getElementsByTagName("div")[1]);
+			//console.log(flag);
+		}
+	</script>
+</body>
+</html>
