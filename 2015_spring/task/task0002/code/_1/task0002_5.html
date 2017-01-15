@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .block {
+            float:left;
+            width:200px;
+            height:500px;
+            border:1px solid #333333;
+        }
+        .left-block {
+            margin-right:400px;
+        }
+        .move {
+            width: 200px;
+            height:49px;
+            border-bottom:1px solid #333;
+            background-color: #929BDD;
+            position: absolute;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="block left-block">
+            <div class="move">1</div>
+            <div class="move">2</div>
+            <div class="move">3</div>
+            <div class="move">4</div>
+            <div class="move">5</div>
+        </div>
+        <div class="block right-block">
+            <div class="move">6</div>
+            <div class="move">7</div>
+            <div class="move">8</div>
+            <div class="move">9</div>
+            <div class="move">10</div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            var container = document.getElementsByClassName('container')[0];
+            var left = document.getElementsByClassName('left-block')[0];
+            var right = document.getElementsByClassName('right-block')[0];
+            var z = 1;
+            var rightBlockX = right.offsetLeft;
+
+            initPosition(left);
+            initPosition(right);
+
+            delegateEvent(left,'div','mousedown',drag);
+            delegateEvent(right,'div','mousedown',drag);
+
+
+            function initPosition(block){
+                for(var i=0,len=block.children.length;i<len;i++){
+                    block.children[i].style.top = 50 * i + 1 + 'px';
+                }
+            }
+
+            function drag(e){
+                var ev = e || window.event;
+                var target = ev.target || ev.srcElement;
+                if(target.className.toUpperCase() != 'MOVE'){
+                    return ;
+                }
+
+                //鼠标按下时位置
+                var disX = ev.clientX;
+                var disY = ev.clientY;
+
+                console.log(disX+'/'+disY);
+
+                //当前方块的偏移位置
+                var divLeft = target.offsetLeft;
+                var divTop = target.offsetTop;
+
+                console.log(divLeft+'/'+divTop);
+
+                target.style.border = "1px solid #333";
+                target.style.opacity = 0.5;
+
+                //zIndex+1
+                target.style.zIndex = z++;
+
+                var parent = target.parentNode;
+                var firstMove = true;
+
+                console.log(e.type);
+
+                console.log(target);
+
+                //鼠标移动
+                document.onmousemove = function(e) {
+                    if (firstMove) {
+                        parent.removeChild(target);
+                        container.appendChild(target);
+                    }
+                    firstMove = false;
+                    var ev = e || window.event;
+
+                    if (outOfScreen(ev)) {
+                        target.parentNode.removeChild(target);
+                        parent.appendChild(target);
+                        if (parent.className.search("left-block") != -1) {
+                            target.style.left = 1 + "px";
+                        } else if (parent.className.search("right-block") != -1) {
+                            target.style.left = rightBlockX + 1 + "px";
+                        }
+                        initPosition(parent);
+                        document.onmousemove = null;
+                    } else {
+                        //move
+                        target.style.left = divLeft + ev.clientX - disX + "px";
+                        target.style.top = divTop + ev.clientY - disY + "px";
+                        //refresh block
+                        initPosition(parent);
+                    }
+                };
+
+                //鼠标抬起
+                document.onmouseup = function(e) {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+
+                    target.style.border = "none";
+                    target.style.borderBottom = "1px solid #333";
+                    target.style.opacity = 1;
+
+                    var ev = e || window.event;
+                    target.parentNode.removeChild(target);
+                    if (judgeInBlock(ev.clientX, ev.clientY, left)) {
+                        left.appendChild(target);
+                        target.style.left = 1 + "px";
+                        initPosition(left);
+                    } else if (judgeInBlock(ev.clientX, ev.clientY, right)) {
+                        right.appendChild(target);
+                        target.style.left = rightBlockX + 1 + "px";
+                        initPosition(right);
+                    } else {
+                        parent.appendChild(target);
+                        if (parent.className.search("left-block") != -1) {
+                            target.style.left = 1 + "px";
+                        } else if (parent.className.search("right-block") != -1) {
+                            target.style.left = rightBlockX + 1 + "px";
+                        }
+                        initPosition(parent);
+                    }
+                };
+                return false;
+
+            }
+
+            function outOfScreen(e) {
+                var maxW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                var maxH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                return e.clientX <= 0 || e.clientX >= maxW || e.clientY <= 0 || e.clientY >= maxH;
+            }
+
+            function judgeInBlock(x, y, block) {
+                var x0 = getPosition(block).x;
+                var x1 = getPosition(block).x + block.offsetWidth;
+                var y0 = getPosition(block).y;
+                var y1 = getPosition(block).y + block.offsetHeight;
+                return x > x0 && x < x1 && y > y0 && y < y1;
+            }
+
+        }
+    </script>
+    <script src="js/util.js"></script>
+</body>
+</html>
+
+<!--界面拖拽交互-->
+
+<!--实现一个可拖拽交互的界面-->
+<!--如示例图，左右两侧各有一个容器，里面的选项可以通过拖拽来左右移动-->
+<!--被选择拖拽的容器在拖拽过程后，在原容器中消失，跟随鼠标移动-->
+<!--注意拖拽释放后，要添加到准确的位置-->
+<!--拖拽到什么位置认为是可以添加到新容器的规则自己定-->
+<!--注意交互中良好的用户体验和使用引导-->

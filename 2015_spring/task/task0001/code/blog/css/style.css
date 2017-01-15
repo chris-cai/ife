@@ -1,47 +1,53 @@
 /*样式表*/
 body,
 h1,
+h2,
 h4,
 ul,
 li,
 a,
-hr {
+hr,
+p {
 	margin: 0;
 	padding: 0;
 }
+
 body {
 	background-color: #eee;
 }
+
 header {
-	position: relative;
+	position: relative;/*for git icon*/
 	width: 100%;
 	height: 80px;
 	background-color: #52385B;
+}
+
+.header-center {
+	width: 980px;
+	height:80px;
+	margin: 0 auto;
 	color: #fff;
 }
-.header-center {
-	position: relative;
-	width: 980px;
-	height: 70px;
-	margin: 0 auto;
-}
+
 .header-center h1 {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	float: left;
+	width:200px;
+	padding:37px 0 5px 0;
 }
+
 header ul {
-	position: absolute;
-	bottom: 0;
-	right: 0;
+	float: right;
 }
+
 header li {
 	float: left;
 	list-style: none;
 }
+
 header li a {
 	display: block;
-	margin: 0 14px;
+	margin: 59px 14px 5px 14px;
 	font: 14px 'SimSun', 'STSong', serif;
 	color: #fff;
 	text-decoration: none;
@@ -50,28 +56,37 @@ header li a:hover {
 	text-decoration: underline;
 }
 
-header a.git-icon img {
-	position: absolute;
-	right: 10px;
-	bottom: 0;
+/*
+git icon
+*/
+@media screen and (min-width: 980px) {
+	header a.git-icon img {
+		position: absolute;
+		right: 10px;
+		bottom: 0;
+	}
 }
 
 @media screen and (max-width: 980px) {
-	header a.git-icon{
+	header a{
 		display: none;
 	}
 }
 
+/*
+head over
+*/
+
 section.img-section img {
 	width: 100%;
 }
-
 
 .section-center {
 	position: relative;
 	width: 980px;
 	margin: 0 auto;
 }
+
 .desc {
 	position: absolute;
 	bottom: 0;
@@ -80,14 +95,15 @@ section.img-section img {
 	height: 90px;
 	padding: 10px 10px 30px 10px;
 	color: #fff;
-	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0) 100%); 
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.5) 75%, rgba(255, 255, 255, 0) 100%);
 }
+
 .desc h4 {
 	float: right;
-	margin-right: 10px;
 	margin-bottom: 15px;
 	font-size: 14px;
 }
+
 .desc p {
 	clear: both;
 	font-size: 12px;
@@ -95,12 +111,16 @@ section.img-section img {
 	line-height: 1.5;
 }
 
-main{
+/*
+主题部分
+*/
+main {
 	width: 980px;
 	margin: 0 auto;
 	overflow: hidden;
 }
-.block{
+
+.block {
 	float: left;
 	margin: 10px 10px 0 0;
 	width: 320px;
@@ -108,6 +128,7 @@ main{
 	padding-bottom: 1000px;
 	margin-bottom: -1000px;
 }
+
 .block-last{
 	margin-right: 0;
 }
@@ -117,12 +138,15 @@ main{
 	height: 180px;
 	margin: 10px 10px 0 10px;
 }
+
 .block div {
 	margin: 15px 30px 25px;
 	font-size: 12px;
 	line-height: 170%;
 	text-indent: 2em;
 }
+
+/**/
 
 .personal-info {
 	margin-top: 120px;
@@ -131,11 +155,13 @@ main{
 	background-color: #fff;
 	text-align: center;
 }
+
 .personal-info img {
 	margin-top: -50px;
 	width: 160px;
 	border-radius: 80px;
 }
+
 .personal-info h4 {
 	margin-top: 50px;
 	font-size: 20px;
@@ -143,6 +169,7 @@ main{
     font-weight: normal;
 	color: #000;
 }
+
 .personal-info p {
 	width: 600px;
 	margin: 40px auto;
@@ -153,16 +180,21 @@ main{
 	color: #000;
 }
 
+/*
+footer
+*/
 footer {
 	width: 100%;
 	background-color: #000; 
 	text-align: center;
 }
+
 footer nav {
 	height: 40px;
 	border-bottom: 1px solid #333;
 	color: #fff;
 }
+
 footer nav ul {
 	width: 200px;
 	height: 40px;
@@ -170,9 +202,11 @@ footer nav ul {
 	overflow: hidden;
 	list-style-type: none;
 }
+
 footer nav ul li {
 	float: left;
 }
+
 footer nav li a {
 	width: 40px;
 	display: block;
@@ -181,6 +215,8 @@ footer nav li a {
 	text-decoration: none;
 	color: #fff;
 }
+
+
 .links {
 	width: 980px;
 	margin: 0 auto;
@@ -188,6 +224,7 @@ footer nav li a {
 	padding-top: 50px;
 	color: #fff;
 }
+
 .links ul {
 	float: left;
 	margin-left: 15px;
@@ -195,10 +232,12 @@ footer nav li a {
 	list-style: none;
 	text-align: left;
 }
+
 li.on {
 	margin-bottom: 30px;
 	color: #eee;
 }
+
 .links ul li a {
 	display: block;
 	color: #fff;
@@ -207,10 +246,32 @@ li.on {
 	text-decoration: none;
 }
 
+.links ul li a:hover {
+	text-decoration: underline;
+	font-size:16px;
+}
+
+/*
+copyright
+*/
+
 .copy-right {
 	color: #fff;
 	text-align: center;
 }
+
 .copy-right div {
 	margin: 60px 0 20px;
+}
+
+
+.clear-fix:after {
+	content: '';
+	display: block;
+	visibility: hidden;
+	height:0;
+	clear: both;
+}
+.clear-fix {
+	*zoom:1;
 }

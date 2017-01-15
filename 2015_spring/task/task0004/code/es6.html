@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="output"></div>
+<!-- Load Babel -->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+    const getMessage = () => "";
+    document.getElementById('output').innerHTML = getMessage();
+
+    let name = 'chris';
+    while(true){
+        let name = 'abc';
+        console.log(name);
+        break;
+    }
+    console.log(name);
+
+    //getMessage = function(){};  error
+
+
+    class Animal{
+        constructor(){
+            this.type = 'animal';
+        }
+        says(say){
+            console.log(this.type + ' says ' + say);
+        }
+    }
+
+    let animal = new Animal();
+    animal.says('hello world');
+
+    class Cat extends Animal{
+        constructor(){
+            super();
+            this.type = 'cat';
+        }
+        says(){
+            setTimeout(function(){
+                console.log(this.type);
+            }.bind(this),1000);
+        }
+        says1(){
+            setTimeout(()=>{console.log(this.type)},1000);
+        }
+    }
+
+    let cat = new Cat();
+    cat.says1();
+
+    //default rest
+    function a(type = 'function a'){
+        console.log(type);
+    }
+    a();
+
+    function b(...types){
+        console.log(types);
+    }
+    b('a','b','c');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/*
+* About PAGE
+*/
+
+.about-section {
+    position: relative;
+    width:980px;
+    margin:80px auto 0;
+    background-color: #fff;
+    height:1000px;
+}
+
+.about-avatar {
+    width:160px;
+    -webkit-border-radius:80px;
+    -moz-border-radius:80px;
+    border-radius:80px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;/*可任意调整与中间线的顺序*/
+    left:50%;
+    margin-left:-80px;
+    margin-top:-50px;
+    border:10px solid #eee;
+}
+
+
+.avatar-1 {
+    width:100px;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    left:50%;
+    margin-left:-50px;
+    border:6px solid #eee;
+}
+
+.line {
+    width:6px;
+    height:1000px;
+    position: absolute;
+    left:50%;
+    margin-left:-3px;
+    background-color: #eee;
+}
+
+.about-text {
+    position: relative;
+    padding-top:140px;
+    min-height:150px;
+}
+
+.about-text .about-topic {
+    width:487px;
+    float: left;
+    text-align: right;
+    font-weight:normal;
+    font-size:30px;
+    padding-right:80px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.about-text .about-desc {
+    width:450px;
+    line-height:1.6;
+    float: right;
+    text-align: left;
+    font-size:14px;
+    padding-right:100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+time middle layout
+*/
+
+.self-left, .self-mid, .self-right {
+    float: left;
+}
+
+.about-text .self-left {
+    width:420px;
+    font-size:34px;
+    font-weight:normal;
+    text-align: right;
+    margin-right:30px;
+}
+
+.about-text .self-mid {
+    width:80px;
+    height:36px;
+    line-height:24px;
+    text-align: center;
+    border-radius: 6px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border:6px solid #eee;
+    background-color: #fff;
+    font-size:12px;
+}
+
+.about-text .self-right {
+    width:200px;
+    font-size:14px;
+    margin-left:20px;
+    line-height:1.5;
+}
+
+.item {
+    width:530px;
+    margin-left:450px;
+    margin-top:40px;
+}

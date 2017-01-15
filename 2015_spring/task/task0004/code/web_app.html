@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no;"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="测试专用">
+    <meta content="telephone=no" name="format-detection" />
+    <title></title>
+    <style media="all and (orientation:portrait)" type="text/css">
+        /* 竖屏 */
+        .portrait {
+            background-color: red;
+        }
+
+        div {
+            height:200px;
+        }
+        .container {
+            display: -webkit-flex;
+            display: flex;
+        }
+        .initial {
+            -webkit-flex: initial;
+            flex: initial;
+            width: 100px;
+            min-width: 50px;
+            border:1px solid #333333;
+        }
+        .none {
+            -webkit-flex: none;
+            flex: none;
+            width: 50px;
+            border:1px solid #444444;
+        }
+        .flex1 {
+            -webkit-flex: 1;
+            flex: 1;
+            border:1px solid #666;
+        }
+        .flex2 {
+            -webkit-flex: 2;
+            flex: 2;
+            border:1px solid #bbb;
+        }
+
+    </style>
+
+    <style media="all and (orientation:landscape)" type="text/css">
+        /* 横屏 */
+        .landscape {
+            background-color: #000000;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="portrait landscape" style="width: 200px;height: 300px;"></div>
+    <div class="container">
+        <div class="initial"></div>
+        <div class="none"></div>
+        <div class="flex1"></div>
+        <div class="flex2"></div>
+
+    </div>
+    <span>18862300956</span>
+    <span>yucaichn@163.com</span>
+
+    <input type="text" />
+    <input type="tel" />
+    <script>
+        setTimeout(function(){ window.scrollTo(0, 1); }, 0);
+    </script>
+</body>
+</html>

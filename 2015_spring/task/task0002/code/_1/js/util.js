@@ -76,11 +76,11 @@ var tarObj = cloneObject(srcObj);
 srcObj.a = 2;
 srcObj.b.b1[0] = "Hello";
 
-console.log(abObj.a);
-console.log(abObj.b.b1[0]);
+//console.log(abObj.a);
+//console.log(abObj.b.b1[0]);
 
-console.log(tarObj.a);      // 1
-console.log(tarObj.b.b1[0]);    // "hello"
+//console.log(tarObj.a);      // 1
+//console.log(tarObj.b.b1[0]);    // "hello"
 
 //2.3
 // 对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组
@@ -115,10 +115,22 @@ function uniqArray1(arr) {
     return data;
 }
 
+function deleteEmptyArr(arr){
+    var data = [];
+    for(var i=0,len=arr.length; i<len; i++){
+        if(arr[i]==='' || arr[i].match(/\s+/)){
+            continue;
+        }else{
+            data.push(arr[i]);
+        }
+    }
+    return data;
+}
+
 // 使用示例
 var a = [1, 3, 5, 7, 5, 3];
 var b = uniqArray1(a);
-console.log(b); // [1, 3, 5, 7]
+//console.log(b); // [1, 3, 5, 7]
 
 // 中级班同学跳过此题
 // 实现一个简单的trim函数，用于去除一个字符串，头部和尾部的空白字符
@@ -149,7 +161,7 @@ function trim(str) {
 // 使用示例
 var str = '   hi!  ';
 str = trim(str);
-console.log(str); // 'hi!'
+//console.log(str); // 'hi!'
 
 // 实现一个遍历数组的方法，针对数组中每一个元素执行fn函数，并将数组索引和元素作为参数传递
 function each(arr, fn) {
@@ -164,14 +176,14 @@ function each(arr, fn) {
 // 使用示例
 var arr = ['java', 'c', 'php', 'html'];
 function output(item) {
-    console.log(item)
+    //console.log(item)
 }
 each(arr, output);  // java, c, php, html
 
 // 使用示例
 var arr = ['java', 'c', 'php', 'html'];
 function output1(item, index) {
-    console.log(index + ': ' + item)
+    //console.log(index + ': ' + item)
 }
 each(arr, output1);  // 0:java, 1:c, 2:php, 3:html
 
@@ -195,7 +207,7 @@ var obj = {
         c2: 4
     }
 };
-console.log(getObjectLength(obj)); // 3
+//console.log(getObjectLength(obj)); // 3
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //2.4
@@ -248,14 +260,20 @@ function isSiblingNode(element, siblingNode) {
 // 获取element相对于浏览器窗口的位置，返回一个对象{x, y}
 function getPosition(element) {
     // your implement
-    element.onclick = function(event){
-        event = event ? event : window.event;
-        var pos = {};
-        pos.x = event.clientX - event.offsetX;
-        pos.y = event.clientY - event.offsetY;
-        //console.log(pos);
-        return pos;
-    }
+    // element.onclick = function(event){
+    //     event = event ? event : window.event;
+    //     var pos = {};
+    //     pos.x = event.clientX - event.offsetX;
+    //     pos.y = event.clientY - event.offsetY;
+    //     //console.log(pos);
+    //     return pos;
+    // }
+    
+    var pos = {};
+    pos.x = element.getBoundingClientRect().left + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
+    pos.y = element.getBoundingClientRect().top + Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    return pos;
+
 
 }
 // your implement
@@ -266,7 +284,7 @@ function $(selector) {
     if(typeof selector !== 'string'){
         return null;
     }
-
+    return document.getElementById(selector.substring(1));
 
 }
 
@@ -307,7 +325,7 @@ function addEvent(element, event, listener) {
 function clicklistener(event) {
 
 }
-addEvent($("#doma"), "click", a);
+//addEvent($("#doma"), "click", a);
 
 // 移除element对象对于event事件发生时执行listener的响应
 function removeEvent(element, event, listener) {
@@ -343,7 +361,7 @@ function delegateEvent(element, tag, eventName, listener) {
     element.addEventListener(eventName,function(event){
         var event = event || window.event;
         var target = event.target || event.srcElement;
-        if(target && target.targetName === tag.toUpperCase()){
+        if(target && target.tagName === tag.toUpperCase()){
             listener.call(target,event);
         }
     });
@@ -354,7 +372,7 @@ function delegateEvent(element, tag, eventName, listener) {
 function isIE() {
     // your implement
     var s = window.navigator.userAgent.toLowerCase();
-    console.log(s);
+    //console.log(s);
 }
 
 // 设置cookie
@@ -409,6 +427,7 @@ function ajax(url, options) {
 }
 
 // 使用示例：
+/*
 ajax(
     'http://localhost:8080/server/ajaxtest',
     {
@@ -417,10 +436,11 @@ ajax(
             password: '123456'
         },
         onsuccess: function (responseText, xhr) {
-            console.log(responseText);
+            //console.log(responseText);
         }
     }
 );
+*/
 
 // options是一个对象，里面可以包括的参数为：
 //
