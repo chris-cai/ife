@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var str = "gogogogogogle";
+		// var reg = /(go)+gle/; //["gogogogogogle", "go", index: 0, input: "gogogogogogle"]
+		// var reg = /((go)+)gle/;//["gogogogogogle", "gogogogogo", "go", index: 0, input: "gogogogogogle"]
+		// console.log(str.match(reg));
+
+		var time = "2016-10-24-21-45-00";
+		var reg = /[0-9]{4}(-[0-9]{2})\1\1\1\1/; //null
+		var reg = /([0-9]{4})(-[0-9]{2}){5}/; //["2016-10-24-21-45-00", "-00", index: 0, input: "2016-10-24-21-45-00"]
+		console.log(time.match(reg));
+
+		// 1-233
+	</script>
+</body>
+</html>

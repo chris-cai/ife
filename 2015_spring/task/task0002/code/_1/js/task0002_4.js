@@ -67,9 +67,11 @@ function search(e){
             if(pre){
                 pre.className = 'active';
                 active.className = '';
+            }else{
+                active.className = '';
             }
         }
-
+    //down
     }else if(e.keyCode === 40){
         if(active){
             var next = active.nextSibling;
@@ -81,7 +83,7 @@ function search(e){
             li.className = 'active';
         }
 
-    }else{
+    }else{//输入字符
         var keyword = trim($("#keyword").value);
         if(keyword === ''){
             $("#word-list").innerHTML = '';

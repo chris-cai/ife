@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Touch</title>
+</head>
+<body>
+    <div style="width: 100%;height: 1000px;"></div>
+</body>
+<script>
+    window.onload = function(){
+
+        var  i = {
+            x:0,
+            y:0
+        };
+
+        function handleTouchEvent(event){
+            var e = event || window.event;
+
+            switch(e.type){
+                case 'touchstart':
+                    i.x = e.touches[0].clientX;
+                    i.y = e.touches[0].clientY;
+                    console.log('start:'+i.x+'/'+i.y);
+                    break;
+                case 'touchmove':
+                    console.log('move:'+e.changedTouches[0].clientX+'/'+e.changedTouches[0].clientY);
+                    break;
+                case 'touchend':
+                        var j = {};
+                        j.x = e.changedTouches[0].clientX;
+                        j.y = e.changedTouches[0].clientY;
+                    console.log('end:'+e.changedTouches[0].clientX+'/'+e.changedTouches[0].clientY);
+
+                    console.log(i);
+                    console.log(Math.sqrt(Math.pow((i.x-j.x),2)+Math.pow((i.y-j.y),2)));
+                    break;
+            }
+
+
+
+        }
+
+        document.addEventListener('touchstart',handleTouchEvent,false);
+        document.addEventListener('touchend',handleTouchEvent,false);
+        document.addEventListener('touchmove',handleTouchEvent,false);
+    }
+</script>
+</html>

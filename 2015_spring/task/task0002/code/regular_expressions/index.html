@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions -->
+	<script type="text/javascript">
+		// var reg = /d(b+)d/g;
+		var reg = new RegExp("d(b+)d","g");
+		var str = "adbbdjs";
+		//console.log(reg.exec(str));
+		console.log('1111111111111111111111');
+
+		var re = /(\w+)\s(\w+)/;
+		var str = "John Smith";
+		var newstr = str.replace(re, "$2, $1");
+		//console.log(newstr);
+
+		var re = /\w+\s/g;
+		var re = new RegExp("\\w+\\s","g");
+		var str = "fee fi fo fum";
+		var myArray = str.match(re);
+		console.log(myArray);
+
+		//test search split
+
+		var reg = /^([1-9]|[1-5]\d|([1-9]|[1-5]\d),([1-9]|[1-5]\d))$/;
+		var str = "1,23";
+		console.log(reg.exec(str));
+	</script>
+</body>
+</html>

@@ -51,6 +51,7 @@
             var z = 1;
             var rightBlockX = right.offsetLeft;
 
+            console.log(rightBlockX);
             initPosition(left);
             initPosition(right);
 
@@ -75,13 +76,13 @@
                 var disX = ev.clientX;
                 var disY = ev.clientY;
 
-                console.log(disX+'/'+disY);
+                console.log('1:'+disX+'/'+disY);
 
-                //当前方块的偏移位置
+                //当前方块的偏移位置  相对于container的偏移位置
                 var divLeft = target.offsetLeft;
                 var divTop = target.offsetTop;
 
-                console.log(divLeft+'/'+divTop);
+                console.log('2:'+divLeft+'/'+divTop);
 
                 target.style.border = "1px solid #333";
                 target.style.opacity = 0.5;

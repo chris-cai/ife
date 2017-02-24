@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+        .one{
+            width: 200px;
+            height: 200px;
+            padding: 2px;
+            background: red;
+            border: 3px solid #000000;
+            overflow: auto;
+        }
+    </style>
+ </head>
+<body>
+<div class="one">
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+    javascript高级应用<br>
+</div>
+
+ 
+ <!-- http://www.2cto.com/kf/201501/373653.html -->
+<script>
+        window.onload=function(){
+            var oDiv=document.getElementsByTagName('div')[0];
+
+            //只读------------------------------------------------------------------
+            console.log(oDiv.clientWidth+":"+oDiv.clientHeight);
+            //padding+content - scroll   204-17
+
+            console.log(oDiv.offsetWidth+":"+oDiv.offsetHeight);
+            //padding+content+border   210
+
+            console.log(oDiv.clientLeft+":"+oDiv.clientTop);
+            //border 3
+
+            // offsetTop offsetLeft 相对父元素的距离
+            console.log(oDiv.offsetTop+":"+oDiv.offsetLeft);
+
+
+            //scrollHeight scrollWidth
+            console.log(oDiv.scrollHeight+':'+oDiv.scrollWidth);
+
+
+            //可写-------------------------------------------------------------------
+            //scrollTop scrollLeft元素被卷起的高度和宽度
+            oDiv.onscroll = function(){
+                console.log(this.scrollTop);
+            }
+
+            //oDiv.scrollTop = 40;
+
+            //oDiv.style.width = '400px';
+
+            //event----------------------------------------------------------------------
+//            clientX
+//            clientY
+//
+//            screenX
+//            screenY
+//
+//            pageX
+//            pageY
+//
+//            offsetX
+//            offsetY
+
+
+
+            //页面可视区域大小
+            var w = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientHeight;
+            var h = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+        }
+    </script>
+ 
+ </body>
+</html>

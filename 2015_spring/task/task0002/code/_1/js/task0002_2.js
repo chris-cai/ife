@@ -20,8 +20,8 @@ window.onload = function(){
         }
         var timeArr = time.split('-');
         var date = new Date(time),
-            today = new Date();
-        var gap = date.getTime() - today.getTime();
+            now = new Date();
+        var gap = date.getTime() - now.getTime();
         if(gap<=0){
             $("#list").style.display = 'none';
             $("#error-msg").innerHTML = '请输入未来的某一时间';

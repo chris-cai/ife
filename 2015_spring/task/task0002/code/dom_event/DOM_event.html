@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+        </style>    
+    </head>
+    <body>
+        <div>
+            <p><span>span-p-div</span></p>
+        </div>        
+        <form action="a.php">
+            <input type="text">
+            <input type="submit" value="submit">
+        </form>
+        <script>
+            var dn = document.getElementsByTagName('div')[0];
+            var pn = document.getElementsByTagName('p')[0];
+            var sn = document.getElementsByTagName('span')[0];
+            
+//            dn.addEventListener('click',function(){
+//                console.log('this is div');
+//            });
+//            pn.addEventListener('click',function(){
+//                console.log('this is p');
+//            });
+//            sn.addEventListener('click',function(){
+//                console.log('this is span');
+//            });
+            
+            dn.addEventListener('click',function(event){
+                console.log('this is div');
+                console.log(event);
+                event.stopPropagation();
+            },false);
+            pn.addEventListener('click',function(event){
+                console.log('this is p');
+                event.stopPropagation();
+            },false);
+            sn.addEventListener('click',function(event){
+                console.log('this is span');
+                event.stopPropagation();
+            },false);
+            
+//            dn.addEventListener('mousemove',function(event){
+//                console.log(event.clientX + '/' + event.clientY);
+//            });
+            
+//            document.getElementsByTagName('form')[0].onsubmit = function(event){
+//                //return false;//ok
+//                event.preventDefault();
+//            };
+
+            document.getElementsByTagName('form')[0].addEventListener('submit',function(event){
+                //return false;//no
+                event.preventDefault();
+            });
+            
+            document.addEventListener('keydown',function(event){
+                console.log(event.keyCode);
+            });
+            
+            window.onload = function(){
+                alert('window.onload');
+            };
+            
+        </script>
+    </body>
+</html>

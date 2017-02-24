@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h2 {
+                height: 30px;
+                width: 100px;
+                border: 1px solid black;
+            }
+        </style>    
+    </head>
+    <body>
+        <div>
+            <input type="text" placeholder="a" onclick="a()">
+            <input type="text" data-value="2" placeholder="b" onclick="console.log(this.getAttribute('data-value'))">
+            <input type="text" placeholder="c" id="c">
+            <input type="text" placeholder="d" id="d">
+        </div>
+        <div>
+            <h2>DOM</h2>
+        </div>
+        <script>
+            function a(){
+                console.log(this);
+            }
+            
+            var cNode = document.getElementById('c');
+            cNode.onclick = c;
+            function c(){
+                console.log(this);
+            }
+            //cNode.onclick = null;
+            
+            document.getElementById('d').onclick = function(){
+                console.log(this);
+            };
+
+            //
+            var hh = document.getElementsByTagName('h2')[0];
+            hh.addEventListener('mouseover',function(e){
+                e.target.style.backgroundColor = 'pink';
+            });
+            hh.addEventListener('mouseout',function(){
+                this.style.backgroundColor = ''; 
+            });
+            
+            function f1(){console.log('f1');}
+            function f2(){console.log('f2');}
+            
+            hh.addEventListener('click',f1);
+            hh.addEventListener('click',f2);
+            
+            hh.removeEventListener('click',f2);
+            
+            
+        </script>
+    </body>
+</html>

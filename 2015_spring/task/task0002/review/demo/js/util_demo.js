@@ -209,8 +209,9 @@ function removeClass(element, className) {
                 break;
             }
         }
+        element.className = classNames.join(' ');
     }
-    element.className = classNames.join(' ');
+    //否则不作处理
 }
 
 /**
@@ -480,7 +481,7 @@ srcObj.b.b1[0] = "Hello";
  */
 function uniqArray(source) {
     var len = source.length,
-        result = source.slice(0),
+        result = source.slice(0),//slice(start,end)[start,end) 不影响原数组
         i, datum;
 
 
@@ -491,7 +492,7 @@ function uniqArray(source) {
         i = len;
         while (i--) {
             if (datum === result[i]) {
-                result.splice(len, 1);
+                result.splice(len, 1);//splice(pos,num)删除pos位置num个；删除splice(pos,0,a1,a2)；替换splice(pos,1,a3)
                 break;
             }
         }
@@ -501,7 +502,7 @@ function uniqArray(source) {
 }
 
 // hash
-function uniqArray1(arr) {
+function uniqArray1(arr) {//利用对象key不能重复
     var obj = {};
     var result = [];
     for (var i = 0, len = arr.length; i < len; i++) {
@@ -793,6 +794,7 @@ function isEmail(emailStr) {
  */
 function isMobilePhone(phone) {
     return /^1\d{10}$/.test(phone);
+    //return /^1\d{10}$/.test(phone);
 }
 
 // console.log(isMobilePhone('18512341234'))
@@ -919,7 +921,7 @@ function ajax(url, options) {
         }
 
         xhr = getXHR();
-        xhr.open(type, url, true);
+        xhr.open(type, url, true);//true async
         xhr.onreadystatechange = stateChangeHandler;
 
         // 在open之后再进行http请求头设定

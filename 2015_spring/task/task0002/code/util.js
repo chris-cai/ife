@@ -31,34 +31,25 @@ function showPropsWithoutFun(obj, objName) {
 // 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、Object对象。不会包含函数、正则对象等
 function cloneObject(src) {
     // your implement
-    var o = null;
-    if(src instanceof Array){
-        o = [];
-        for(var i in src){
-            o[i] = cloneObject(src[i]);
+    var result = src, i, len;
+    if(!src || src instanceof Number || src instanceof String || src instanceof Boolean){
+        return result;
+    }else if(isArray(src)){
+        var resLen = 0;
+        result = [];
+        for(i=0,len=src.length;i<len;i++){
+            result[resLen++] = cloneObject(src[i]);
         }
-        return o;
-    }
-    if(src instanceof Object){
-        o = {};
-        for(var i in src){
+    }else if(src instanceof Object){
+        result = {};
+        for(i in src){//包括实例和原型中的属性
             if(src.hasOwnProperty(i)){
-                o[i] = cloneObject(src[i]);
+                result[i] = cloneObject(src[i])
             }
         }
-        return o;
     }
-    return src;
-}
+    return result;
 
-function cloneObject1(obj){
-    var o = obj.constructor === Array ? [] : {};
-    for(var i in obj){
-        if(obj.hasOwnProperty(i)){
-            o[i] = typeof obj[i] === "object" ? cloneObject(obj[i]) : obj[i];
-        }
-    }
-    return o;
 }
 
 
@@ -74,10 +65,10 @@ var abObj = srcObj;
 var tarObj = cloneObject(srcObj);
 
 srcObj.a = 2;
-srcObj.b.b1[0] = "Hello";
+srcObj.b.b1[0] = "abc";
 
-console.log(abObj.a);
-console.log(abObj.b.b1[0]);
+console.log(abObj.a);//2
+console.log(abObj.b.b1[0]);//abc
 
 console.log(tarObj.a);      // 1
 console.log(tarObj.b.b1[0]);    // "hello"
@@ -143,7 +134,7 @@ function simpleTrim(str) {
 // 尝试使用一行简洁的正则表达式完成该题目
 function trim(str) {
     // your implement
-    return str.replace(/^\s+|\s+$/g,"");
+    return String(str).replace(/^\s+|\s+$/g,"");
 }
 
 // 使用示例
@@ -331,8 +322,9 @@ function addEnterEvent(element, listener) {
     // your implement
     addEvent(element,'keyup',function(event){
         var event = event || window.event;
-        if(event.keyCode === 13){
-            listener();
+        var keyCode = event.keyCode || event.which;
+        if(keyCode === 13){
+            listener.call(element,event);
         }
     });
 }
@@ -349,12 +341,20 @@ function delegateEvent(element, tag, eventName, listener) {
     });
 }
 
+/**********************************************************************************
+ *
+ * BOM
+ */
+
 
 // 判断是否为IE浏览器，返回-1或者版本号
 function isIE() {
     // your implement
     var s = window.navigator.userAgent.toLowerCase();
     console.log(s);
+
+    return /msie (\d+\.\d+)/i.test(navigator.userAgent)
+        ? (document.documentMode || + RegExp['\x241']) : undefined;
 }
 
 // 设置cookie
@@ -366,6 +366,12 @@ function setCookie(cookieName, cookieValue, expiredays) {
 function getCookie(cookieName) {
     // your implement
 }
+
+/**
+ * *************************************************************************8
+ * @param url
+ * @param options
+ */
 
 //
 function ajax(url, options) {

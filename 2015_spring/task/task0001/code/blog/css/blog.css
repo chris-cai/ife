@@ -77,3 +77,116 @@
     color: #bbb;
 }
 
+.aside {
+    width:260px;
+}
+
+.aside form {
+    padding:20px;
+    background-color: #fff;
+    position: relative;
+}
+
+.aside form input {
+    width:120px;
+    height:40px;
+    padding-left:50px;
+    border:1px solid #ddd;
+    background: url("../img/search.png") no-repeat;
+}
+
+.aside form button {
+    width: 48px;
+    height: 44px;
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.aside,.tags,.tags ul,.tags li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.aside .tags {
+    margin-top:20px;
+    width:100%;
+    height:200px;
+    background-color: #fff;
+}
+
+.aside .tags li {
+    width:100%;
+    height:50px;
+    line-height:50px;
+    text-align: left;
+    padding-left:14px;
+    border-left:3px solid mediumpurple;
+    border-bottom:1px solid #ddd;
+    text-transform: uppercase;
+}
+.aside .tags li:hover,li.now{
+    border-left-color: rebeccapurple;
+}
+
+.aside div.date {
+    margin-top:20px;
+    padding:20px;
+    background: #fff;
+}
+
+.date h3 {
+    width:179px;
+    margin:0 auto;
+    font-size:14px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.date table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin:10px auto;
+    color: #888;
+    font-size:13px;
+}
+
+.date tr {
+    padding:3px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.date td {
+    text-align: right;
+    padding:8px;
+}
+.tag-cloud {
+    box-sizing: border-box;
+    margin-top:20px;
+    width:100%;
+    padding:20px;
+    background: #fff;
+}
+.tag-cloud span {
+    color: #955ea1;
+}
+.tag-1 {
+    font-size:28px;
+}
+.tag-2 {
+    font-size:22px;
+}
+.tag-3 {
+    font-size:18px;
+}
+.tag-4 {
+    font-size:14px;
+}
+.tag-5 {
+    font-size:12px;
+}
